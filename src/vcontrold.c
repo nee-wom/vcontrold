@@ -933,11 +933,6 @@ int main(int argc, char *argv[])
                 chmod(logfile, stb.st_mode | S_IRGRP | S_IWGRP);
                 chown(logfile, pw->pw_uid, grp->gr_gid);
             }
-            // Make lock file accessible to the anticipated user/group
-            if (stat(tmpfilename, &stb) == 0) {
-                chmod(tmpfilename, stb.st_mode | S_IRGRP | S_IWGRP);
-                chown(tmpfilename, pw->pw_uid, grp->gr_gid);
-            }
 
             if (setgroups(0, NULL) != 0) {
                 int errsv = errno;

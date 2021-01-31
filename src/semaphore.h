@@ -19,14 +19,6 @@
 
 #include <sys/param.h>
 
-#ifdef _CYGWIN__
-#define TMPFILENAME "vcontrol.lockXXXXXX"
-#else
-#define TMPFILENAME "/tmp/vcontrol.lockXXXXXX"
-#endif
-
-extern char tmpfilename[MAXPATHLEN + 1]; // account for the leading '\0'
-
 int vcontrol_seminit();
 int vcontrol_semfree();
 int vcontrol_semget();
